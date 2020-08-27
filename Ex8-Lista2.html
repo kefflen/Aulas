@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ex8</title>
+        <script>
+            function calcular() {
+                let n1 = Number(document.getElementById("n1").value)
+
+                let resultado = (n1 <= 300)? `Novo salario: ${(n1*1.35).toFixed(2)} R$; com reajuste de 35%` : `Novo salario: ${(n1*1.15).toFixed(2)} R$; com reajuste de 15%`
+
+                document.getElementById("resultado").innerHTML = resultado
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Ex8</h1>
+        <h2>Mostrar reajuste</h2>
+        <h3>Digite seu salario <input type="number" id="n1"></h3>
+        <button type="button" onclick="calcular()">Calcular</button>
+        <h3 id="resultado"></h3>
+    </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ex10</title>
+    <script>
+        function calcular(){
+            let n1 = Number(document.getElementById("n1").value)
+            let p = n1*n1
+            document.getElementById("resultado").innerHTML = `Area do quadrado: ${p}`
+        }
+    </script>
+</head>
+<body>
+    <h2>Lista1 - Exercicio 10</h2>
+    <h2>Calcular a area de um quadrado</h2>
+    <h2>Lado <input type="number" id="n1"></h2>
+    <h2><button type="button" onclick="calcular()">Calcular</button></h2>
+    <h2 id="resultado"></h2>
+</body>
+</html>

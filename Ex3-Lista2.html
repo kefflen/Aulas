@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ex3</title>
+        <script>
+            function calcular() {
+                let n1 = Number(document.getElementById("n1").value)
+                let n2 = Number(document.getElementById("n2").value)
+
+                let resultado = (n1 <= n2)? `${n1} é menor` : `${n2} é menor`
+
+                document.getElementById("resultado").innerHTML = resultado
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Ex3</h1>
+        <h2>Mostrar o menor numero</h2>
+        <h3>Digite o numero 1 <input type="number" id="n1"></h3>
+        <h3>Digite o numero 2 <input type="number" id="n2"></h3>
+        <button type="button" onclick="calcular()">Calcular</button>
+        <h3 id="resultado"></h3>
+    </body>
+</html>

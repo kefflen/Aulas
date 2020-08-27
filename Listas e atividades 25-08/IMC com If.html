@@ -1,0 +1,55 @@
+<!-- comentario html -->
+<!--cabeçalho do documento html versão 5-->
+<!DOCTYPE html>
+<!--Elemento raiz da html-->
+<html>
+    <head>
+        <!--o idioma é portugues e portanto precisa suportat acentos e cecedilha-->
+        <meta charset="utf-8">
+        <title>Calculadora de imc</title>
+        <script>
+            function calcular() {
+                //Recupera o valor da variavel pelo id
+                var a = document.getElementById("altura").value
+                var p = document.getElementById("peso").value
+                var imc = p/a**2
+                document.getElementById("imc").innerHTML = `O valor do IMC ${imc.toFixed(2)}`
+                var resultado
+                if (imc < 18.5) {
+                    resultado = `Abaixo do peso`
+                } 
+                else if (imc < 25) {
+                    resultado = "Peso normal"
+                }
+                else if (imc < 30) {
+                    resultado = "Sobrepeso"
+                }
+                //So para usar o &&
+                else if ((imc >= 30) && (imc <= 34.9)) {
+                    resultado = "Obesidade grau 1"
+                }
+                else if (imc < 40) {
+                    resultador = "Obsidade grau 2"
+                }
+                else {
+                    resultado = "Obesidade grau 3"
+                }
+                document.getElementById("resultado").innerHTML = `O resultado é ${resultado}`
+            }
+        </script>
+    </head>
+    <body> <!--corpo da pagina-->
+        <h1>Calculadora de IMC</h1> <!--cabeçalho de nivel-->
+        <h3>
+            informe seu peso(utilise ponto em vez de virgula) <input type="number" id="peso">
+        </h3>
+        <h3>
+            informe sua altura em metros(utilize ponto e não virgula) <input type="number" id="altura">
+        </h3>
+        <h3>
+            <button type="button" onclick="calcular()">Calcular botao</button>
+        </h3>
+        <h3 id="imc"></h3>
+        <h3 id="resultado"></h3>
+    </body>
+</html>

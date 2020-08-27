@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script>
+            function calcular(){
+                var n1 = Number(document.getElementById("n1").value)
+                var n2 = Number(document.getElementById("n2").value)
+                var opcao = Number(document.getElementById("opcao").value)
+
+                var resultado
+                switch (opcao) {
+                    case 1: resultado = (n1 + n2)/2
+                        break
+                    case 2: resultado = n1>n2? n1 - n2 : n2 - n1
+                        break
+                    case 3: resultado = n1*n2
+                        break
+                    case 4: resultado = n2!=0? n1/n2 : "Não é possivel divisão por zero"
+                        break
+                    default: resultado="Opção invalida!"
+                        break;
+                }
+                document.getElementById("resultado").innerHTML = resultado
+                }
+            
+        </script>
+    </head>
+    <body>
+        <h3>Exercicio-5; lista-2</h3>
+        <h3>Informe um numero <input type="number" id="n1"></h3>
+        <h3>Informe outro numero <input type="number" id="n2"></h3>
+        <h3>Escolha uma opção: 1.Media, 2.Subtração, 3.Produto, 4.Divisão <input type="number" id="opcao"></h3>
+        <h3><button type="button" onclick="calcular()">Calcular</button></h3>
+        <h3 id="resultado"></h3>
+    </body>
+</html>

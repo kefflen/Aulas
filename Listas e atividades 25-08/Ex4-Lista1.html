@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ex4</title>
+    <script>
+        function calcular(){
+            let n1 = Number(document.getElementById("n1").value)
+            let n2 = Number(document.getElementById("n2").value)
+
+            let p = (n1*2 + n2*3)/5
+            document.getElementById("resultado").innerHTML = `Media ponderada: ${p}`
+
+        }
+    </script>
+</head>
+<body>
+    <h2>Lista1 - Exercicio 4</h2>
+    <h2>Nata 1 <input type="number" id="n1"></h2>
+    <h2>Nata 2 <input type="number" id="n2"></h2>
+    <h2><button type="button" onclick="calcular()">Calcular a media</button></h2>
+    <h2 id="resultado"></h2>
+</body>
+</html>

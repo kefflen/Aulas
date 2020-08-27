@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ex10</title>
+        <script>
+            function calcular() {
+                let n1 = Number(document.getElementById("n1").value)
+                let dist
+                let imp
+                if (n1 <= 12000) {
+                    dist = 0.05
+                    imp = 0
+                } else if (n1 < 25000) {
+                    dist  = 0.1
+                    imp = 0.15
+                } else {
+                    dist = 0.15
+                    imp = 0.2
+                }
+                let resultado = n1 + n1*dist + n1*imp
+
+                document.getElementById("resultado").innerHTML = `Preço: ${resultado.toFixed(2)} R$`
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Ex10</h1>
+        <h2>Calcular o preço</h2>
+        <h3>Digite o custo de fabrica <input type="number" id="n1"></h3>
+        <button type="button" onclick="calcular()">Calcular</button>
+        <h3 id="resultado"></h3>
+    </body>
+</html>

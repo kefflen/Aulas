@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ex5</title>
+    <script>
+        function calcular(){
+            let n1 = Number(document.getElementById("n1").value)
+
+            let p = n1*0.9
+            document.getElementById("resultado").innerHTML = `Novo preço:R$ ${p.toFixed(2)}`
+
+        }
+    </script>
+</head>
+<body>
+    <h2>Lista1 - Exercicio 5</h2>
+    <h2>Escreva o preço do produto <input type="number" id="n1"></h2>
+    <h2><button type="button" onclick="calcular()">Calcular</button></h2>
+    <h2 id="resultado"></h2>
+</body>
+</html>

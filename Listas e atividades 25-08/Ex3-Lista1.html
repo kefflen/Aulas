@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ex3</title>
+    <script>
+        function calcular(){
+            let n1 = Number(document.getElementById("n1").value)
+            let n2 = Number(document.getElementById("n2").value)
+            let p = (n2 != 0)? n1/n2 : "Não pode dividir por zero"
+            document.getElementById("resultado").innerHTML = `Resultado: ${p}`
+        }
+    </script>
+</head>
+<body>
+    <h2>Lista1 - Exercicio 3</h2>
+    <h2>Escreva um numero <input type="number" id="n1"></h2>
+    <h2>Escreva um numero <input type="number" id="n2"></h2>
+    <h2><button type="button" onclick="calcular()">Calcular</button></h2>
+    <h2 id="resultado"></h2>
+</body>
+</html>

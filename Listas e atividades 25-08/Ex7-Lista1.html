@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ex7</title>
+    <script>
+        function calcular() {
+            var peso = Number(document.getElementById("peso").value)
+            var emagrece = peso - (20*peso)/100
+            var engorga = peso + (15*peso)/100
+
+            document.getElementById("emagrece").innerHTML = `Novo valor(emagrece): ${emagrece}`
+            document.getElementById("engorda").innerHTML = `Novo valor(engorda): ${engorga}`
+        }
+    </script>
+</head>
+<body>
+
+    <h3>Peso <input type="number" id="peso"></h3>
+    <button type="button" onclick="calcular()">Calcular</button>    
+</body>
+    <h3>
+        <p id="emagrece">
+
+        </p>
+        <p id="engorda">
+
+        </p>
+    </h3>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ex8</title>
+    <script>
+        function calcular(){
+            let n1 = Number(document.getElementById("n1").value)
+
+            let p = n1*1000
+            document.getElementById("resultado").innerHTML = `Peso em gramas: ${p}`
+
+        }
+    </script>
+</head>
+<body>
+    <h2>Lista1 - Exercicio 8</h2>
+    <h2>Digite seu peso <input type="number" id="n1"></h2>
+    <h2><button type="button" onclick="calcular()">Calcular</button></h2>
+    <h2 id="resultado"></h2>
+</body>
+</html>

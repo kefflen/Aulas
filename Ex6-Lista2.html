@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ex6</title>
+        <script>
+            function calcular() {
+                let n1 = Number(document.getElementById("n1").value)
+                let n2 = Number(document.getElementById("n2").value)
+                let n3 = Number(document.getElementById("n3").value)
+                let resultado
+                switch (n3) {
+                    case 1:
+                        resultado = `${n1} elevado a ${n2}: ${n1**n2}`
+                        break;
+                    case 2:
+                        resultado = `Raizes quadrada:<br>Numero 1:  ${n1**(1/2)}<br>Numero 2: ${n2**(1/2)}`
+                        break
+                    case 3:
+                        resultado = `Raizes cubica:<br>Numero 1: ${n1**(1/3)}<br>Numero 2: ${n2**(1/3)}`
+                        break
+                    default:
+                        resultado = "Opção invalida!";
+                }
+
+                document.getElementById("resultado").innerHTML = resultado
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Ex6</h1>
+        <h2>Calcular umas das operações</h2>
+        <h3>Digite o primeiro numero <input type="number" id="n1"></h3>
+        <h3>Digite o segundo numero <input type="number" id="n2"></h3>
+        <h3>Opções:<br> (1)Elevar ao segundo numero;<br>(2)Raiz quadrada<br>(3)Raiz cubica
+        </h3>
+        <h3>Digite uma das opções <input type="number" id="n3"></h3>
+        <button type="button" onclick="calcular()">Calcular</button>
+        <h3 id="resultado"></h3>
+    </body>
+</html>

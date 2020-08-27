@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ex6</title>
+        <script>
+            function calcular(){
+                var salariofixo = Number(document.getElementById("salarioFixo").value)
+                var vendas = Number(document.getElementById("vendas").value)
+
+                var comissao = (vendas * 4) / 100
+                var salarioFinal = salariofixo + comissao
+
+                document.getElementById("resultado").innerHTML = `Comissão: R$ ${comissao.toFixed(2)} e salario final R$ ${salarioFinal.toFixed(2)}`
+            }
+
+        </script>
+    </head>
+    <body>
+        <h2>Lista 1 - Exercicio 6</h2>
+        <h3>
+            Salário fixo <input type="number" id="salarioFixo">
+        </h3>
+        <h3>
+            Valor das vendas <input type="number" id="vendas">
+        </h3>
+        <h3>
+            <button type="button" onclick="calcular()">Calcular</button>
+        </h3>
+        <h3 id="resultado"></h3>
+    </body>
+</html>

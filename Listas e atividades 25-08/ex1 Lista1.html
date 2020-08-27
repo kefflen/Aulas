@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ex6</title>
+        <script>
+            function calcular() {
+                var n1 = Number(document.getElementById("n1").value)
+                var n2 = Number(document.getElementById("n2").value)
+                
+                var resultado = n1 - n2
+
+                document.getElementById("resultado").innerHTML = `A subtração é de ${resultado}`
+            }
+        </script>
+    </head>
+    <body>
+        <h2>Lista 1 - Exercicio 1</h2>
+        <h2>
+            Primeiro numero <input type="number" id="n1">
+        </h2>
+        <h3>
+            Segundo numero <input type="number" id="n2">
+        </h3>
+        <h3>
+            <button type="button" onclick="calcular()">Calcular</button>
+        </h3>
+        <h3 id="resultado"></h3>
+    </body>
+</html>
