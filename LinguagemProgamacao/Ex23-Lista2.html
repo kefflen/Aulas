@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ex23</title>
+        <style>
+            body {
+                text-align: center;
+                background-color:lightslategrey
+            }
+        </style>
+        <script>
+            function calcular() {
+                cod = document.getElementById("n1").value
+                qtd = document.getElementById("n2").value
+
+                let preco
+                console.log(0<cod <= 10)
+                console.log(cod)
+                if (0 < cod && cod <= 10) {
+                    preco = 10
+                } else if (cod <= 20) {
+                    preco = 15
+                } else if (cod <= 30) {
+                    preco = 20
+                } else if (cod <= 40) {
+                    preco = 30
+                } else {
+                    document.getElementById("resultado").innerHTML = "Codigo invalido"
+                    return null
+                }
+                let des
+                let total = qtd * preco
+                if (total <= 250) {
+                    des = 0.05
+                } else if (total <= 500) {
+                    des = 0.1
+                } else des = 0.15
+
+                let finalValue = total - (total*des)
+                document.getElementById("resultado").innerHTML = `Preço unitario:R$ ${preco} ; total:R$ ${total} <br>Desconto: ${des*100}%; Preço final:R$ ${finalValue}`
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Calcular o preço</h1>
+        <h2>Digite o codigo do produto <input type="number" id="n1"></h2>
+        <h2>Digite a quantidade <input type="number" id="n2"></h2>
+        <h2><button type="button" onclick="calcular()">Calcular</button></h2>
+        <h2 id="resultado"></h2>
+    </body>
+</html>
