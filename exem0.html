@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>media</title>
+    <script>
+        function calcular(){
+            let contador = 1
+            /* let qtdNum = Number(prompt("Informe quantos numeros sera inserido:")) */
+            let soma = 0
+            let verify = true
+            let qtd = 0
+            while (verify) { //Executa 2- vezes
+                let numero = Number(prompt("Informe um numero: "))
+                soma += numero
+                let resp = prompt("Deseja informar mais um numero?(s)")
+                verify = resp.toLowerCase()=='s'
+                qtd++
+                }
+                contador++ //Incrementa o contador
+            
+            let media = soma/qtd
+            document.getElementById("resultado").innerHTML = `A media é ${media}`
+        }
+    </script>
+</head>
+<body>
+    <h2>Exercicio exemplo</h2>
+    <h2>Clique no botão para iniciar </h2>
+    <h3><button onclick="calcular()">Calcular</button></h3>
+    <h3 id="resultado"></h3>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tabuada</title>
+    <script>
+        function calcular(){
+            let n = document.getElementById("n1")
+            let n1 = n.value
+            let div = document.createElement("div")
+            let contador = 1
+            while (contador <= 10) {
+                let p = document.createElement("p")
+                p.innerHTML = `${n1}x${contador} = ${n1*contador}`
+                div.appendChild(p)
+                contador++
+            }
+
+            /* document.getElementById("resultado").appendChild(div) */
+            document.getElementById("resultado").innerHTML = div.innerHTML
+        }
+    </script>
+</head>
+<body>
+    <P>Digite um numero: <input type="number" id="n1"></P>
+    <button onclick="calcular()">Calcular</button>
+    <h3 id="resultado"></h3>
+</body>
+</html>
