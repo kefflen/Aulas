@@ -2,15 +2,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Tabuada</title>
+    <style>
+        p {
+            display: inline;
+        }
+        body {
+            background-color: #f1f1f1;
+        }
+        #resultado {
+            width: 350px;
+        }
+    </style>
     <script>
         function calcular(){
             let n = document.getElementById("n1")
             let n1 = n.value
             let div = document.createElement("div")
+            div.style.borde = "5px"
             let contador = 1
             while (contador <= 10) {
                 let p = document.createElement("p")
-                p.innerHTML = `${n1}x${contador} = ${n1*contador}`
+                p.style.display = "inline-block"
+                p.style.width = "50%"
+                p.innerHTML = `${n1}*${contador} = ${n1*contador}`
                 div.appendChild(p)
                 contador++
             }
