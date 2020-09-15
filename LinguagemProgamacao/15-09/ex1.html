@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        const decrecent = (n1, n2) => n2 > n1
+        function bubbleSort(vetorOrigin, fncomp = null) {
+            vetor = [...vetorOrigin]
+            let padrao = (n1, n2) => n1 > n2
+            fncomp = fncomp || padrao
+            let trocas
+            do {
+                trocas = 0
+                //Ate o penultimo
+                for (let i=0; i <= vetor.length - 2; i++) {
+                    if (fncomp(vetor[i], vetor[i+1])) {
+                        [vetor[i], vetor[i + 1]] = [vetor[i + 1], vetor[i]]
+                        trocas++
+                    
+                    }
+
+                }
+            } while (trocas > 0)
+            return vetor
+        }
+        function calcular() {
+            for (let i = 0; i < 4; i++) {
+                let a = Number(prompt("Informe o valor de A"))
+                let b = Number(prompt("Informe o valor de A"))
+                let c = Number(prompt("Informe o valor de A"))
+                let d = Number(prompt("Informe o valor de A"))
+                let vetor = [a, b, c, d]
+                console.log(bubbleSort(vetor))
+                console.log(bubbleSort(vetor, decrecent))
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <button onclick="calcular()">
+        Clique para iniciar
+    </button>
+</body>
+</html>
