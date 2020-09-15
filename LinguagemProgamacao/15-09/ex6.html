@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ex-3</title>
+    <style>
+        #resultado {
+            display: inline-block;
+        }
+        .hidden {
+            border: 2px solid black;
+            display: inline-block;
+            height: 300px;
+            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        #entrada h3 {
+            margin: 0px;
+        }
+        table {
+            border-collapse: collapse;
+            border: 2px solid #000;
+            width: 300px;
+        }
+
+        th, td {
+            border-bottom: 1px solid rgb(202, 202, 202);
+            padding: 10px;
+        }
+
+        thead tr {
+        border-bottom: solid 3px #444; 
+        }
+
+        tbody tr:hover {
+            background-color: #dedede;
+        }
+
+        tfoot {
+            background-color: #444;
+            color: #fff;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="entrada">
+        <div>
+            <p>Depois de selecionar a opção pode pressionar enter:</p>
+            <h3>Valor da venda</h3>
+            <input type="number" name="venda" id="venda"><button type="button" disabled="true" onclick="contabilizar()" id="btn">Confirmar</button>
+        </div>
+        <div>
+            <h3>Opção</h3>
+            <div>
+                <input type="radio" name="op" id="v" value="v" onchange="active(this)">
+                <label for="v">A vista</label>
+                <input type="radio" name="op" id="p" value="p" onchange="active(this)">
+                <label for="p">A prazo</label>
+            </div>
+        </div>
+
+    </div>
+    <div class="hidden">
+    <table id="vendas">
+        <thead>
+            <th>Valor</th>
+            <th>Opção</th>
+        </thead>
+        <tbody id="tbody">
+
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+
+    </table>
+    </div>
+    <div id="resultado">
+
+    </div>
+</body>
+<script>
+    document.getElementById("venda").onkeypress = e => {
+        if (e.code == "Enter") {
+            btn = document.querySelector("button")
+            if (!btn.disabled) {
+                contabilizar()
+            }
+        }
+    }
+    let continuar = true
+    let id = "#vendas"
+    let dados = {
+        index: 0,
+        valores: []
+    }
+
+    function active(el) {
+        console.log(el)
+        document.querySelector("button").disabled = false
+        el.onkeypress = e => {
+            if (e.code == "Enter") {
+                btn = document.querySelector("button")
+                if (!btn.disabled) {
+                    contabilizar()
+                }
+        }
+    }}
+    
+    function contabilizar() {
+        if (continuar) {
+
+        let input = document.getElementById("venda")
+        let [op1, op2] = document.querySelectorAll("input[name=op]")
+        op = (op1.checked)? op1 : op2
+        dados.valores.push({
+            venda: `R$ ${Number(input.value).toFixed(2)}`,
+            opcao: op.value
+        })
+        dados.index++
+        console.log(dados)
+        if (dados.index == 15) {
+            let resultado = document.getElementById("resultado")
+            let parcelados = dados.valores.reduce((parc, item) => {
+                if (item.opcao.toUpperCase() == "P") {
+                    parc.push(Number(item.venda.slice(3)))
+                }
+                    return parc
+            }, [])
+            let prazos = dados.valores.reduce((praz, item) => {
+                if (item.opcao.toUpperCase() == "V") {
+                    praz.push(Number(item.venda.slice(3)))
+                }
+                    return praz
+            }, [])
+            console.log({parcelados, prazos})
+            let totalPrazos = prazos.reduce((x, y) => x+y, 0)
+            let totalParcelado = parcelados.reduce((x, y) => x+y, 0)
+            let totalEfetuado = [...prazos, ...parcelados].reduce((x, y) => x+y, 0)
+            let primeiraPrestacaoParcelado = parcelados.reduce((x, y) => x + y/3, 0)
+            console.log({totalPrazos, totalParcelado, totalEfetuado, primeiraPrestacaoParcelado})
+            resultado.innerHTML = `Total a prazo:R$ ${totalPrazos.toFixed(2)}<br>
+                                    Total parcelados:R$ ${totalParcelado.toFixed(2)}<br>
+                                    total efetuado:R$ ${totalEfetuado.toFixed(2)}<br>
+                                    Primeira prestação:R$ ${primeiraPrestacaoParcelado.toFixed(2)}`
+            continuar = false
+        }
+        }
+
+
+        render()
+    }
+
+    function render() {
+        
+        let body = document.getElementById("tbody")
+        body.innerHTML = ""
+
+        for (let i=0; i < dados.index; i++) {
+            let dado = dados.valores[i]
+            let element = document.createElement("tr")
+            
+            let venda = document.createElement("td")
+            venda.innerHTML =  dado.venda
+            let opcao = document.createElement("td")
+            opcao.innerHTML =  dado.opcao.toUpperCase()
+
+            element.appendChild(venda)
+            element.appendChild(opcao)
+            body.appendChild(element)
+        }
+    }
+</script>
+</html>
