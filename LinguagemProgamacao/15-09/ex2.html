@@ -3,8 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <script>
+        function calcular() {
+            let resultados = []
+            let qtd = 120
+            let despesa = 200
+            let maior = null
+            for (let preco=5; preco >= 1; preco=preco - 0.5) {
+                let res = {preco, qtd, final: qtd*preco-despesa}
+                resultados.push(res)
+                maior = (!maior || maior.final < res.final)? res: maior
+                console.log(res)
+                qtd += 26
+            }
+            console.log("Maior lucro")
+            console.log(maior)
+            let tbody = document.getElementById("resultado")
+            let table = document.getElementById("table")
+            table.insertAdjacentHTML("beforebegin", `<h3>O maior valor é: R$ ${maior.final.toFixed(2)}</h2>`)
+            for (let elem in resultados) {
+                let tr = `<td>${elem}</td><td>R$${resultados[elem].preco.toFixed(2)}</td><td>${resultados[elem].qtd}</td><td>R$${resultados[elem].final.toFixed(2)}</td>`
+                
+                tbody.insertAdjacentHTML('beforeend', tr) 
+            }
+        }
+    </script>
+    <style>
+        table {
+            border-collapse: collapse;
+            border: 2px solid #000;
+        }
+
+        th, td {
+            padding: 10px;
+        }
+
+        thead tr {
+        border-bottom: solid 3px #444; 
+        }
+
+        tbody tr:hover {
+            background-color: #dedede;
+        }
+
+        tfoot {
+            background-color: #444;
+            color: #fff;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    
+    <h2>Exercicio 2 da lista 3</h2>
+    <button onclick="calcular()" type="button">Clique para iniciar</button>
+    <table id="table">
+        <thead>
+            <tr>
+                <th>ciclo</th>
+                <th>preço</th>
+                <th>ingressos</th>
+                <th>valor final</th>
+            </tr>
+        </thead>
+        <tbody id="resultado">
+
+        </tbody>
+        <tfoot id="maior">
+
+        </tfoot>
+    </table>
 </body>
 </html>
