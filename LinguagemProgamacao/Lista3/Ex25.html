@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Exercicio 25</title>
+    <script>
+        function calcular() {
+            let rendimento
+            let codigo = Number(prompt("Informe o codigo do cliente"))
+            let totalInvestido = 0 //Total investido
+            let totalRendimento = 0 //Total do rendimento
+            do {//Pelo menos 1 cliente sara considerado
+                let valor = Number(prompt("Valor do investimento"))
+                totalInvestido += valor // Acumula o investimento
+                let tipo = Number(prompt("informe o tipo de investimento"))
+                switch (tipo) {
+                    case 1:
+                        rendimento = (valor * 1.5) / 100
+                        totalRendimento += rendimento
+                        break
+                    case 2:
+                        rendimento = (valor * 2) / 100
+                        totalRendimento += rendimento
+                        break
+                    case 3:
+                        rendimento = (valor * 2) / 100
+                        totalRendimento += rendimento
+                        break
+                    default: alert("Tipo não encontrado")
+                    
+                }
+                codigo = Number(prompt("informe o codigo do cliente"))
+            } while (codigo != 0)
+            alert(`Total investido:R$ ${totalInvestido.toFixed(2)}; total de rendimento:R$ ${totalRendimento.toFixed(2)}`)
+        }
+    </script>
+    </head>
+    <body>
+        <h3>Exercicio 25</h3>
+        <button onclick="calcular()">Executar</button>
+    </body>
+</html>

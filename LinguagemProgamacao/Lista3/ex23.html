@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Exercicio 23</title>
+    <script>
+        function calcular() {
+            let opcao, h3, salario, res
+            let resultado = document.getElementById("resultados")
+            do {//Temos que exibir o menu pelo menos 1 vez
+                opcao = Number(prompt(`Digite: \n 1.Novo Salario \n 2. Ferias \n 3. Decimo terceiro \n 4. Sair`))
+
+                switch(opcao) {
+                    case 1: 
+                        salario = Number(prompt("Imforme o salario:"))
+                        let aumento = 0
+                        if (salario <= 210) {
+                            aumento = (salario * 15) / 100
+                        } else if (salario <= 600) {
+                            aumento = (salario * 10) / 100
+                        } else {
+                            aumento = (salario * 5) / 100
+                        }
+                        h3 = document.createElement("h3")
+                        salario = salario+aumento
+                        res = `Novo salario:R$ ${salario.toFixed(2)}`
+                        alert(res)
+                        h3.innerHTML = res
+                        resultado.appendChild(h3)
+                        break
+                    case 2:
+                        salario = Number(prompt("Informe o salario:"))
+                        let ferias = salario + (salario / 3)
+                        h3 = document.createElement("h3")
+                        res = `Salario de ferias:R$ ${ferias.toFixed(2)}`
+                        alert(res)
+                        h3.innerHTML = res
+                        resultado.appendChild(h3)
+                        break
+                    case 3:
+                        salario = Number(prompt("Informe o salario"))
+                        let meses = Number(prompt("Informe o numero de meses"))
+                        if (meses > 12) {
+                            alert("Numero de meses não pode ser maior que 12.\nSera considerado 12 meses")
+                            meses = 12
+                        }
+                        let decimoTerc = salario * meses / 12
+                        h3 = document.createElement("h3")
+                        res = `Decimo terceiro:R$ ${decimoTerc.toFixed(2)}`
+                        alert(res)
+                        h3.innerHTML = res
+                        resultado.appendChild(h3)
+                        break
+                    case 4:
+                        h3 = document.createElement("h3")
+                        h3.innerHTML = `Sair`
+                        resultado.appendChild(h3)
+                        break
+                    default:
+                        h3 = document.createElement("h3")
+                        res = `Opção invalida`
+                        alert(res)
+                        h3.innerHTML = res
+                        resultado.appendChild(h3)
+                }//Fim do switch
+            } while (opcao != 4)
+        }//Fim da função
+    </script>
+</head>
+<body>
+    <button onclick="calcular()">Iniciar progama</button>
+    <div id="resultados">
+
+    </div>
+    <h3 id="resultado"></h3>
+</body>
+</html>
