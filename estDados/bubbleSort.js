@@ -24,4 +24,6 @@ let nums = [58, 16, 33, 82, 4, 47, 25, 71, 96, 60, 41, 89]
 console.time("Teste1")
 bubbleSort(nums)
 console.timeEnd("Teste1")
+const memoria = process.memoryUsage().heapUsed /1024/1024
 console.log(nums)
+console.log("Memoria usada (MB):" ,memoria)
