@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Questao 2</title>
+    <script>
+        function registrar() {
+            let registro = [], idade, peso, altura, funcao, departamento
+            let  qtd = 0, media, porcentagem = 0, toDepart = 0, idades = []
+            ciclos = 20
+            for (let i = 0; i < ciclos; i++) {
+                idade = Number(prompt("Idade da maquina(anos)?"))
+                peso = Number(prompt("Peso da maquina(quilos)?"))
+                altura = Number(prompt("Altura da maquina"))
+                funcao = prompt("Função da maquina(C,A,X)?")
+                departamento = prompt("Departamento(A,C,P)?")         
+                    alert(`Maquina ${i+1}`)
+                    if (idade > 3 && peso < 10.5) qtd += 1
+                    if (altura < 8.5) idades.push(idade)
+                    if (funcao.toLowerCase() == "c") porcentagem += 1
+                    if (departamento.toLowerCase() == "a" && funcao.toLowerCase() != "c") toDepart += 1
+            }
+            media = idades.reduce((somaIdade, idade) => {return somaIdade + idade}, 0) / idades.length
+            porcentagem = porcentagem/ciclos
+            console.log(`A quantidade de máquinas com idade superior a 3 anos e peso inferior a 10.5 quilos: ${qtd}\nA média das idades das máquinas com altura inferior a 8.5: ${media}\nA percentagem de máquinas com função para corte entre todas as máquinas analisadas: ${porcentagem*100}%\nA quantidade de máquinas do departamento de acabamento e que não são utilizadas para chanfração: ${toDepart}`)
+        }
+    </script>
+
+</head>
+<body>
+    <h1>Questão avaliativa 2</h1>
+    <button onclick="registrar()">Registrar maquinas</button>
+</body>
+</html>

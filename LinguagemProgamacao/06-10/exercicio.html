@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        function calcular() {
+            let pais = [], maes = []
+            alert("Informe os 7  melhores compradores no dias das Pais")
+            for (i=0; i<5; i++) {
+                pais.push(Number(prompt("Informe o codigo do commprador no dia dos pais")))
+            }
+            alert("Informe os 7  melhores compradores no dias das mães")
+            for (i=0; i<7; i++) {
+                maes.push(Number(prompt("Informe o codigo do comprador no dia das mães")))
+            }
+            let inter = ""
+            for (let i=0; i<pais.length; i++) {
+                let clientP = pais[i]
+                for (let j=0; j<maes.length; j++) {
+                    let clientM = maes[j]
+                    if (clientP == clientM) {
+                        inter += clientP + "\n"
+                    }
+                }
+            }
+            alert(inter)
+
+        }
+
+    </script>
+</head>
+<body>
+    <button onclick="calcular()">Calcular a intersecção</button>
+</body>
+</html>

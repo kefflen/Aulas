@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vetor</title>
+    <script>
+    function calcular() {
+        let vetor = [] //Criação do vetor
+        alert(`informe o preço de 10 produtos`)
+        for (let i=0; i < 10; i++) {
+            vetor.push(Number(prompt("Informe um preço")))
+        }
+        //Calcula a media dos preços dos produtos
+        let maior, menor, soma = 0, impares = "IMPARES:\n"
+        for (let i=0; i<10; i++) {
+            let value = vetor[i]
+            if (i%2 != 0) {
+                impares += `R$${value.toFixed(2)} `
+            }
+            if (!maior || value > maior) maior = value
+            if (!menor || value < menor) menor = value
+            soma += value
+        }
+        
+        alert(` A media dos preços: R$ ${(soma/vetor.length).toFixed(2)}\n O maior valor é R$${maior.toFixed(2)}\n O menor valor é R$${menor.toFixed(2)}\n${impares}`)
+    }
+    </script>
+</head>
+<body>
+    <button onclick="calcular()">Calcular a media de preços de 10 produtos</button>
+</body>
+</html>
