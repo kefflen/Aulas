@@ -15,7 +15,22 @@ let obj = {
         }
     }
 }
-
+function PessoaIterable (name, idade, college, course) {
+    return {
+        name, idade, college, course,
+        [Symbol.iterator]: function* () {
+            yield this.name
+            yield this.idade
+            yield this.college
+            yield this.course
+        }
+    }
+}
+let peoples = [new PessoaIterable("Kefflen", 23, "Fatec", "ADS"), new PessoaIterable("Joao", 19, "Fatec", "ADS")]
 for (let client of obj) {
     console.log("Cliente: ", client)
+}
+for (pearson of peoples) {
+    [name, idade, college, course] = pearson
+    console.log(name, idade, college, course)
 }
