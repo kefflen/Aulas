@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Exercicio 9</title>
+    <script>
+        function calcular() {
+            let ciclos = 3
+            let produtos = []
+            for (let i=0; i<ciclos; i++) {
+                let obj = new Object()
+                obj.produto = (prompt("Nome do produto?"))
+                obj.codigo = (Number(prompt("O codigo do produto?")))
+                obj.preco = (Number(prompt("O preço do produto(R$)?")))
+                produtos.push(obj)
+            }
+            let linhas = []
+            for (let i=0; i < ciclos; i++) {
+                let obj = produtos[i]
+                let preco = obj.preco, produto = obj.produto, codigo=obj.codigo
+                let novoPreco
+                if (codigo%2 == 0 || preco > 1000) {
+                    if (!preco > 1000) {
+                        novoPreco = preco*1.15
+                    } else if (! codigo%2 == 0) {
+                        novoPreco = preco*1.1
+                    } else {
+                        novoPreco = preco*1.2
+                    }
+                    linhas.push(`Produto: ${produto}\nCodigo:${codigo}\nPreço: R$${preco.toFixed(2)}\nNovo preço: R$${novoPreco.toFixed(2)}`)
+                }
+            }
+            let relatorio = "Relatorio:\n"
+            for (linha in linhas) {
+                relatorio += linhas[linha]
+                if (linha < linhas.length - 1) {
+                    relatorio += "\n" + "----------------------------" + "\n"
+                }
+            }
+            alert(relatorio)
+        }
+
+    </script>
+</head>
+<body>
+    <h1>Exercicio 9 da lista de vetores</h1>
+    <button onclick="calcular()">Analisar e calcular o preco final de 10 produtos</button>
+</body>
+</html>
