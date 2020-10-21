@@ -5,19 +5,20 @@
     <script>
         function fazerRelatorio() {
             let ciclos = 10
-            let vendas = [], comissoes = [], nomes = []
+            
+            let funcionarios = []
             for (let i=0; i<ciclos; i++) {
-                let nome = prompt("Qual o nome do funcionario?")
-                let venda = Number(prompt("O total das vendas do funcionario"))
-                let comissao = Number(prompt("O percentual da comissão"))
-                nomes.push(nome)
-                vendas.push(venda)
-                comissoes.push(comissao)
+                let funcionario = {}
+                funcionario.nome = prompt("Qual o nome do funcionario?")
+                funcionario.venda = Number(prompt("O total das vendas do funcionario"))
+                funcionario.comissao = Number(prompt("O percentual da comissão"))
+                funcionarios.push(funcionario)
             }
             let maior, relatorio = "", menor, total=0
             for (let i=0; i<nomes.length; i++) {
-                let venda = vendas[i], nome = nomes[i]
-                let comissao = venda*(comissoes[i]/100)
+                let funcionario = funcionarios[i]
+                let venda = funcionario.venda, nome = funcionario.nome
+                let comissao = venda*(funcionario.comissao/100)
                 let receber = venda + comissao
                 if (!maior || maior < receber) maior = receber
                 if (!menor || menor > receber) menor = receber

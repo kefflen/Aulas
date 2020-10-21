@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Exercicio 14</title>
+    <script>
+        function programa() {
+            let vetor = []
+            for (let i=0; i<6; i++) {
+                let aluno = {}
+                aluno.nome = prompt("Digite o nome do aluno:")
+                aluno.prova1 = Number(prompt("Digite a nota da prova 1 do aluno:"))
+                aluno.prova2 = Number(prompt("Digite a nota da prova 2 do aluno:"))
+                vetor.push(aluno)   
+            }
+            let medias = [], aprovados = 0, exame = 0, reprovado = 0
+            let relatorio = "NOME | PROVA1 | PROVA2 | MEDIA | SITUAÇÂO", situacao
+            for (let i=0; i < vetor.length; i++) {
+                let {nome, prova1, prova2} = vetor[i]
+                let media = (prova1 + prova2) / 2
+                medias.push(media)
+                if (media >= 6) {
+                    situacao = "aprovado"
+                    aprovados++
+                } else if (media >= 3) {
+                    situacao = "exame"
+                    exame++
+                } else {
+                    situacao = "reprovado"
+                    reprovado++
+                }
+                relatorio += `\nNome: ${nome} | Prova1: ${prova1.toFixed(1)} | Prova2: ${prova2.toFixed(1)} | Media: ${media.toFixed(1)} | Situação: ${situacao}`
+            }
+            let mediaClass = (medias.reduce((x, y) => x+y)/vetor.length)
+            let perApr = (aprovados/vetor.length)*100
+            let perExa = (exame/vetor.length)*100
+            let perRepr = (reprovado/vetor.length)*100
+            alert(relatorio + "\n" + `Media da classe: ${mediaClass.toFixed(1)}\nPercentual de aprovados: ${perApr.toFixed(2)}%\nPercentual em exames: ${perExa.toFixed(2)}%\nPercentual de reprovados: ${perRepr.toFixed(2)}%`)
+        }
+    </script>
+</head>
+<body>
+    <h1>Exercicio 14</h1>
+    <button type="button" onclick="programa()">Iniciar progama</button>
+</body>
+</html>
